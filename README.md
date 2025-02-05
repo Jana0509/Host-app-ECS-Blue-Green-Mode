@@ -1,4 +1,4 @@
-![image (3)](https://github.com/user-attachments/assets/855b95ca-6445-49fb-aa32-1153387cc470)# Host-app-ECS-Blue-Green-Mode
+# Host-app-ECS-Blue-Green-Mode
 Hosting an application in ECS cluster and deploying the changes using blue and green mode
 
 ## Introduction:
@@ -11,7 +11,7 @@ When you create an Amazon ECS service that’s fronted by an Application Load Ba
 Each target group uses a different listener port, allowing both environments to run in parallel. This setup enables testing in the green environment without disrupting the live blue version. Access to the green version can be restricted, allowing only internal testers to verify the new deployment before it goes live.
 
 ## Architecture:
-![Uploading image.png…]()
+![image (3)](https://github.com/user-attachments/assets/855b95ca-6445-49fb-aa32-1153387cc470)
 
 
 🔄 Blue/Green Deployment Strategy
