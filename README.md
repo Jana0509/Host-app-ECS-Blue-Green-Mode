@@ -2,7 +2,7 @@
 Hosting an application in ECS cluster and deploying the changes using blue and green mode
 
 ## Introduction:
-This project demonstrates building and deploying the containerized application in ECS cluster(Fargate mode) using CI/CD approach and Implemented Blue/Green Update to ECS. Here, When the code is pushed to the Github, build will trigger and deploy the new version of task to the Fargate containers. In order to avoid the downtime and make sure the application is highly availability, we have implemented the deployment strategy in blue/green mode. Overall, Complete infrastructure is running in VPC for secure isolation for the resources.
+This project demonstrates building and deploying the containerized application in ECS cluster(Fargate mode) using CI/CD approach and Implemented Blue/Green Update to ECS. Here, When the code is pushed to the Github, build will trigger and deploy the new version of task to the Fargate containers. In order to avoid the downtime and make sure the application is highly available, we have implemented the deployment strategy in blue/green mode. Overall, Complete infrastructure is running in VPC for secure isolation for the resources.
 
 
 ## Architecture:
