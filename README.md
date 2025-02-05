@@ -2,10 +2,23 @@
 Hosting an application in ECS cluster and deploying the changes using blue and green mode
 
 ## Introduction:
-This project demonstrates building and deploying the containerized application in ECS cluster(Fargate mode) using CI/CD approach and Implemented Blue/Green Update to ECS. Here, When the code is pushed to the Github, build will trigger and deploy the new version of task to the Fargate containers. In order to avoid the downtime and make sure the application is highly available, we have implemented the deployment strategy in blue/green mode. Overall, Complete infrastructure is running in VPC for secure isolation for the resources.
+The application runs inside an ECS cluster, with the infrastructure hosted in a VPC for security and isolation. The CI/CD pipeline automates deployments—whenever new code is pushed to GitHub, the pipeline builds the container image, pushes it to ECR, and updates the ECS Fargate tasks without downtime.
+
+When you create an Amazon ECS service that’s fronted by an Application Load Balancer (ALB), you typically designate a target group for your service. However, in this approach, we created two target groups:
+🔹 One for the Blue version of the service.
+🔹 One for the Green version of the service.
+
+Each target group uses a different listener port, allowing both environments to run in parallel. This setup enables testing in the green environment without disrupting the live blue version. Access to the green version can be restricted, allowing only internal testers to verify the new deployment before it goes live.
 
 
 ## Architecture:
+![Uploading image (3).png…]()
+
+
+🔄 Blue/Green Deployment Strategy
+🔹 It ensures high availability by deploying updates to a separate (green) environment before switching traffic from the current (blue) environment. This allows testing before making the new version live, reducing rollback risks and downtime.
+
+🔹 When you’re ready to replace the old blue service with the new green service, call the ModifyListener API operation to swap the listener’s rules for the target group rules. The change happens within a few seconds. Afterward, the green service runs in the target group with the port 80 listener, while the blue service moves to the port 8080 listener.
 
 ## Project Highlights:
 1. Version Control : used GIT and Github for Versioning and storing the codebase.
